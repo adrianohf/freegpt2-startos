@@ -17,6 +17,21 @@ jobs:
       - name: Checkout services repository
         uses: actions/checkout@v4
 
+      - name: Free up disk space
+        run: |
+          echo "Disk space before cleanup:"
+          df -h
+          echo "Removing unnecessary packages and files..."
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          sudo apt-get clean
+          echo "Disk space after cleanup:"
+          df -h
+        shell: bash
+
       - name: Build the service package
         run: |
           git submodule update --init --recursive
