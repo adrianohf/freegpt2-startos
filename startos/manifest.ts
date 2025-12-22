@@ -1,10 +1,4 @@
 import { setupManifest } from '@start9labs/start-sdk'
-import { SDKImageInputSpec } from '@start9labs/start-sdk/base/lib/types/ManifestTypes'
-
-const BUILD = process.env.BUILD || ''
-
-const architectures =
-  BUILD === 'x86_64' || BUILD === 'aarch64' ? [BUILD] : ['x86_64', 'aarch64']
 
 export const manifest = setupManifest({
   id: 'ollama',
@@ -24,20 +18,11 @@ export const manifest = setupManifest({
   images: {
     ollama: {
       source: {
-        dockerTag: 'ollama/ollama:0.13.1',
+        dockerTag: 'ollama/ollama:0.13.5',
       },
-      arch: architectures,
-    } as SDKImageInputSpec,
+    },
   },
   // @TODO
-  hardwareRequirements: { arch: architectures },
-  alerts: {
-    install: null,
-    update: null,
-    uninstall: null,
-    restore: null,
-    start: null,
-    stop: null,
-  },
+  hardwareRequirements: {},
   dependencies: {},
 })

@@ -1,7 +1,7 @@
 import { sdk } from './sdk'
 import { port } from './utils'
 
-export const main = sdk.setupMain(async ({ effects, started }) => {
+export const main = sdk.setupMain(async ({ effects }) => {
   /**
    * ======================== Setup (optional) ========================
    */
@@ -10,7 +10,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
   /**
    * ======================== Daemons ========================
    */
-  return sdk.Daemons.of(effects, started).addDaemon('ollama', {
+  return sdk.Daemons.of(effects).addDaemon('ollama', {
     subcontainer: await sdk.SubContainer.of(
       effects,
       { imageId: 'ollama' },
@@ -24,10 +24,6 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
     ),
     exec: {
       command: sdk.useEntrypoint(),
-      // @TODO delete when fixed
-      env: {
-        HOME: '/root',
-      },
     },
     ready: {
       display: 'Ollama API',
