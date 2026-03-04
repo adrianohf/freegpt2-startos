@@ -5,18 +5,18 @@ export const manifest = setupManifest({
   id: 'ollama',
   title: 'Ollama',
   license: 'MIT',
-  wrapperRepo: 'https://github.com/Start9Labs/ollama-startos',
-  upstreamRepo: 'https://github.com/ollama/ollama',
-  supportSite: 'https://docs.ollama.com/',
-  marketingSite: 'https://ollama.com/',
   donationUrl: null,
-  docsUrl: 'https://docs.ollama.com/',
+  packageRepo:
+    'https://github.com/Start9Labs/ollama-startos/tree/update/040',
+  upstreamRepo: 'https://github.com/ollama/ollama',
+  marketingUrl: 'https://ollama.com/',
+  docsUrls: ['https://docs.ollama.com/'],
   description: { short, long },
   volumes: ['main'],
   images: {
     ollama: {
       source: {
-        dockerTag: 'ollama/ollama:0.15.5',
+        dockerTag: 'ollama/ollama:0.17.5',
       },
     },
   },

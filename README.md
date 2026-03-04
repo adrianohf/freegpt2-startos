@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.png" alt="Ollama Logo" width="21%">
+  <img src="icon.svg" alt="Ollama Logo" width="21%">
 </p>
 
 # Ollama on StartOS
@@ -7,8 +7,8 @@
 > **Upstream docs:** <https://docs.ollama.com/>
 >
 > Everything not listed in this document should behave the same as upstream
-> Ollama v0.15.5. If a feature, setting, or behavior is not mentioned
-> here, the upstream documentation is accurate and fully applicable.
+> Ollama. If a feature, setting, or behavior is not mentioned here, the
+> upstream documentation is accurate and fully applicable.
 
 [Ollama](https://github.com/ollama/ollama) makes it easy to get up and running with self-hosted, open source large language models (LLMs). It supports a wide range of models from the [Ollama library](https://ollama.com/library).
 
@@ -36,7 +36,7 @@
 
 | Property | Value |
 |----------|-------|
-| Image | `ollama/ollama:0.15.5` (upstream unmodified) |
+| Image | `ollama/ollama` (upstream unmodified) |
 | Architectures | x86_64, aarch64 |
 | Entrypoint | Default upstream entrypoint |
 
@@ -181,8 +181,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for build instructions and development wo
 
 ```yaml
 package_id: ollama
-upstream_version: 0.15.5
-image: ollama/ollama:0.15.5
+image: ollama/ollama
 architectures: [x86_64, aarch64]
 volumes:
   main: /root/.ollama
