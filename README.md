@@ -182,18 +182,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for build instructions and development wo
 ```yaml
 package_id: ollama
 image: ollama/ollama
-architectures: [x86_64, aarch64]
+architectures:
+  - x86_64
+  - aarch64
 volumes:
   main: /root/.ollama
 ports:
   api: 11434
 dependencies: none
-fixed_config:
-  host: 0.0.0.0:11434
-  models_dir: /root/.ollama
+startos_managed_env_vars: []
 actions: none
-health_checks:
-  - port_listening: 11434
-backup_volumes:
-  - main
 ```
